@@ -1,0 +1,11 @@
+FROM jupyter/base-notebook:latest
+
+USER root
+
+# install dependencies
+WORKDIR /tmp
+COPY requrements.txt requrements.txt
+RUN pip install --no-cache-dir -r requrements.txt
+
+WORKDIR /home/jovyan/work
+USER jovyan
